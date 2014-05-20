@@ -1,9 +1,9 @@
 #encoding:utf-8
 module NumberToCn 
-  CN_T_TRANS           = [ "", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾" ]
-  CN_T_TRANS_WITH_ZERO = [ "零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾" ]
-  CN_T_POSITION        = [ "", "拾", "佰", "仟" ]
-  CN_T_BIG             = [ "", "萬", "亿", "萬" ]
+  CN_T_TRANS           = [ "", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+  CN_T_TRANS_WITH_ZERO = [ "零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+  CN_T_POSITION        = [ "", "十", "百", "千" ]
+  CN_T_BIG             = [ "", "萬", "億", "萬" ]
 
   def to_cn_words
     if self.class == Fixnum
@@ -47,7 +47,7 @@ module NumberToCn
     before_point     = self.to_i
     after_point      = self.to_s.split(".")[1]
     after_point_zero = "零" * (after_point.length - after_point.to_i.to_s.length)
-    "#{before_point.int_words}点#{after_point_zero}#{after_point.to_i.to_cn_clearly}"
+    "#{before_point.int_words}點#{after_point_zero}#{after_point.to_i.to_cn_clearly}"
   end
   
   def to_cn_clearly
